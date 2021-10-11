@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { firebase } from '../../firebase'
 
 import { CircularProgress } from '@material-ui/core'
 import { Redirect } from 'react-router'
@@ -6,7 +7,7 @@ import { Redirect } from 'react-router'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 
-const SignIn = () => {
+const SignIn = (props) => {
   const [loading, setLoading] = useState(false)
 
   const formik = useFormik({
@@ -20,11 +21,24 @@ const SignIn = () => {
         .required('The email is required'),
       password: Yup.string().required('The email is required')
     }),
-    onSubmit: (value) => {
+    onSubmit: (values) => {
       setLoading(true)
-      console.info(value)
+      submitForm(values)
     }
   })
+
+  const submitForm = (values) => {
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(values.email, values.password)
+      .then(() => {
+        props.history.push('/dashboard')
+      })
+      .catch((error) => {
+        setLoading(false)
+        alert(error)
+      })
+  }
 
   return (
     <div className="container">
