@@ -6,6 +6,7 @@ import { Redirect } from 'react-router'
 
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import { showErrorToast, showSuccessToast } from '../Utils/tools'
 
 const SignIn = (props) => {
   const [loading, setLoading] = useState(false)
@@ -32,11 +33,12 @@ const SignIn = (props) => {
       .auth()
       .signInWithEmailAndPassword(values.email, values.password)
       .then(() => {
+        showSuccessToast('Welcome back')
         props.history.push('/dashboard')
       })
       .catch((error) => {
         setLoading(false)
-        alert(error)
+        showErrorToast(error.message)
       })
   }
 
