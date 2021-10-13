@@ -78,7 +78,7 @@ const SignIn = (props) => {
           </div>
         </div>
       ) : (
-        <Redirect to={'/dashbord'} />
+        <Redirect to={'/dashboard'} />
       )}
     </>
   )

@@ -6,7 +6,7 @@ const AuthGurad = (Component) => {
   class AuthHoc extends React.Component {
     authCheck = () => {
       const user = firebase.auth().currentUser
-
+      console.info(user)
       if (user) {
         return <Component {...this.props} />
       } else {

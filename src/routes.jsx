@@ -9,14 +9,14 @@ import Home from './components/Home'
 import Header from './components/Header_footer/header'
 import Footer from './components/Header_footer/footer'
 import SignIn from './components/Signin'
-import Dashbord from './components/Admin/Dashbord'
+import Dashboard from './components/Admin/Dashboard'
 
 const Routes = ({ user }) => {
   return (
     <Router>
       <Header user={user} />
       <Switch>
-        <Route path="/dashbord" exact component={AuthGurad(Dashbord)} />
+        <Route path="/dashboard" exact component={AuthGurad(Dashboard)} />
         <Route path="/sign_in" exact component={SignIn} />
         <Route path="/" exact component={Home} />
       </Switch>
