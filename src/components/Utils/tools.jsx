@@ -36,7 +36,7 @@ export const showSuccessToast = (msg) => {
   })
 }
 
-export const logoutHnadler = () => {
+export const logoutHandler = () => {
   firebase
     .auth()
     .signOut()

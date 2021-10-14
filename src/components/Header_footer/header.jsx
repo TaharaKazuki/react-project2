@@ -2,7 +2,7 @@ import React from 'react'
 
 import { AppBar, Toolbar, Button } from '@material-ui/core'
 import { Link } from 'react-router-dom'
-import { CityLogo, logoutHnadler } from '../Utils/tools'
+import { CityLogo, logoutHandler } from '../Utils/tools'
 
 const Header = ({ user }) => {
   return (
@@ -33,7 +33,7 @@ const Header = ({ user }) => {
             <Link to="/dashboard">
               <Button color="inherit">Dashboard</Button>
             </Link>
-            <Button color="inherit" onClick={() => logoutHnadler()}>
+            <Button color="inherit" onClick={() => logoutHandler()}>
               Log out
             </Button>
           </>
