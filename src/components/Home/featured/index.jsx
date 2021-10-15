@@ -1,10 +1,11 @@
 import React from 'react'
-import Test from './test'
+// import Test from './test'
+import Stripes from './Stripe'
 
 const Featured = () => {
   return (
     <div className="featured_wrapper">
-      <Test />
+      <Stripes />
     </div>
   )
 }
