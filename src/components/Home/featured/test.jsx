@@ -8,6 +8,9 @@ const Test = () => {
 
   return (
     <>
+      <button onClick={() => setBck('#f44336')}>Update</button>
+      <button onClick={() => setShow(false)}>Remove</button>
+      <button onClick={() => setShow(true)}>Show</button>
       <Animate
         show={show}
         start={{
@@ -27,6 +30,41 @@ const Test = () => {
             ease: easePolyOut
           }
         }}
+        update={{
+          backgroundColor: bck,
+          opacity: [0.5],
+          timing: {
+            duration: 2000,
+            ease: easePolyOut
+          },
+          events: {
+            start: () => {
+              console.log('STARTED')
+            },
+            end: () => {
+              console.log('ENDED')
+            },
+            interrupt: () => {
+              //////
+            }
+          }
+        }}
+        leave={[
+          {
+            width: [1000],
+            timing: {
+              duration: 500,
+              ease: easePolyOut
+            }
+          },
+          {
+            opacity: [0],
+            timing: {
+              duration: 1000,
+              ease: easePolyOut
+            }
+          }
+        ]}
       >
         {({ width, height, opacity, backgroundColor }) => (
           <div
