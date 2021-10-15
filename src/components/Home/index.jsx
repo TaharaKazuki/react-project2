@@ -1,6 +1,6 @@
 import React from 'react'
 import Featured from './featured'
-import MatchesHome from './matched'
+import MatchesHome from './matches'
 
 const Home = () => {
   return (
